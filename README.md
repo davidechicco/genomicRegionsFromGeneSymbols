@@ -37,9 +37,8 @@ verboseFlag <- FALSE
 outputFileFormat <- "CSV" # BED or CSV
 outputFolder <- "../results/"
 saveOutputFileFlag <- FALSE
+
 arrangedAnnotations <- getGenomicRegionsFromGeneSymbols(gene_symbols_list, trackName, saveOutputFileFlag, outputFolder, outputFileFormat, verboseFlag)
-
-
 ```
 
 The function will print all the intermediate messages if `verboseFlag` is set to true, and eventually the `arrangedAnnotations` variable will contain the genomic regions of the query gene symbols
