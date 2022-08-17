@@ -46,13 +46,13 @@ The function will print all the intermediate messages if `verboseFlag` is set to
 
     Query gene symbols' coordinates in the GRCh38/hg38 reference genome:
     gene_symbol           genomic_region      ensembl_ID
-    1       AK4   chr1:65147549-65232145 ENSG00000162433  
+    1       AK4   chr1:65147549-65232145  ENSG00000162433  
     2       EGLN1 chr1:231363751-231422287 ENSG00000135766
     3             chr1:231363797-231528603 ENSG00000287856
-    4       ALDOC  chr17:28573115-28576948 ENSG00000109107
-    6        PDK1 chr2:172555373-172608669 ENSG00000152256
+    4       ALDOC chr17:28573115-28576948 ENSG00000109107
+    6       PDK1 chr2:172555373-172608669 ENSG00000152256
     7     FAM162A chr3:122384161-122412334 ENSG00000114023
-    5         PGK1   chrX:77910739-78129295 ENSG00000102144
+    5        PGK1 chrX:77910739-78129295 ENSG00000102144
 
 
 ## Contacts
