@@ -1,0 +1,17 @@
+citHeader("To cite the package 'genomicRegionsFromGeneSymbols' in publications use:")
+
+citEntry(
+  entry        = "Article",
+  title        = "genomicRegionsFromGeneSymbols, a software package for easily retrieving genomic regions of gene symbols",
+  journal      = "In preparation",
+  author       = personList(as.person("Davide Chicco")),
+	year         = "2022",
+	doi          = "",
+  url          = "http://bioconductor.org/packages/genomicRegionsFromGeneSymbols/",
+
+  textVersion  =
+  paste("Davide Chicco (2022).",
+        "genomicRegionsFromGeneSymbols, a software package for easily retrieving genomic regions of gene symbols\n",
+        " - URL: http://bioconductor.org/packages/genomicRegionsFromGeneSymbols/",
+        " - Under review")
+)
