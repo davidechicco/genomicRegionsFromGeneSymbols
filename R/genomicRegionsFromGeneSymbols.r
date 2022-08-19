@@ -185,8 +185,10 @@ getGenomicRegionsFromGeneSymbols <- function(thisGeneSymbolList, thisTrackName, 
         colnames(theseAnnotations)[which(colnames(theseAnnotations)=="Gene start (bp)")] <- "genomic_region_start_basepairs"
         colnames(theseAnnotations)[which(colnames(theseAnnotations)=="Gene end (bp)")] <- "genomic_region_end_basepairs"
         colnames(theseAnnotations)[which(colnames(theseAnnotations)=="AFFY HG U133A probe")] <- "GPL96_probeset_ID"
+
+        theseAnnotations$"chromosome" <- paste0("chr", theseAnnotations$"chromosome")
         
-        theseAnnotations$"genomic_region" <- paste0("chr", theseAnnotations$"chromosome", ":",  theseAnnotations$"genomic_region_start_basepairs", "-", theseAnnotations$"genomic_region_end_basepairs")
+        theseAnnotations$"genomic_region" <- paste0(theseAnnotations$"chromosome", ":",  theseAnnotations$"genomic_region_start_basepairs", "-", theseAnnotations$"genomic_region_end_basepairs")
         
         theseAnnotations <- theseAnnotations[order(theseAnnotations$"chromosome", theseAnnotations$"genomic_region_start_basepairs", theseAnnotations$"genomic_region_end_basepairs"),]
         
@@ -238,10 +240,8 @@ getGenomicRegionsFromGeneSymbols <- function(thisGeneSymbolList, thisTrackName, 
             } else if(outputFileFormat == "BED")  {
             bedHeader <- paste0("track name=\"",thisTrackName,"\" description=\"GRCh38/hg38 coordinates\"")
             write(bedHeader, file=outputFileName, append=TRUE)
-            
-            theseAnnotations$"chromosome" <- paste0("chr", theseAnnotations$"chromosome")
-            
-            write.table(theseAnnotations[,c("chromosome", "genomic_region_start_bp", "genomic_region_end_bp")], file=outputFileName, row.names=FALSE, col.names = FALSE, sep="\t", quote = FALSE, append=TRUE)
+                        
+            write.table(theseAnnotations[,c("chromosome", "genomic_region_start_basepairs", "genomic_region_end_basepairs")], file=outputFileName, row.names=FALSE, col.names = FALSE, sep="\t", quote = FALSE, append=TRUE)
             
             if(verboseFlag) cat("saved annotations in the file ", outputFileName, "\n")
             }
