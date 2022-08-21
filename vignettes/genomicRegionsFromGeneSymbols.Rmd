@@ -1,0 +1,84 @@
+---
+title: "genomicRegionsFromGeneSymbols vignette"
+author: "Davide Chicco"
+email: davide.chicco@gmail.com
+date: "`r Sys.Date()`"
+package: genomicRegionsFromGeneSymbols
+abstract: >
+  genomicRegionsFromGeneSymbols allows users to retrieve the genomic regions of gene symbols.
+output: 
+  BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{genomicRegionsFromGeneSymbols vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+```{r style, echo = FALSE, results = 'asis'}
+  BiocStyle::markdown()
+```
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(genomicRegionsFromGeneSymbols)
+```
+
+
+## Introduction
+
+In bioinformatics studies, often gene are indicated as gene symbols. Sometimes it is useful to have the genomic regions of these gene symbols, to perform genome analyses such as genomic regions enrichment analyses. This tool retrieves the chromosome number, the starting chromosome locus, and the ending chromosome locus of each input gene symbol.
+
+## Description
+
+genomicRegionsFromGeneSymbols allows users to retrieve the genomic regions of gene symbols.
+ 
+## Installation via Bioconductor
+
+Once this package will be available on Bioconductor, it will be possibile to install it through the following commands.
+
+Start R (version "4.1") and enter:
+
+```{r eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))`
+        `install.packages("BiocManager")
+
+BiocManager::install("genomicRegionsFromGeneSymbols")
+```
+
+It will be possible to load the package with the following command:
+
+```{r eval=FALSE}
+library("genomicRegionsFromGeneSymbols")
+```
+
+## Usage
+
+The usage of genomicRegionsFromGeneSymbols is very easy. The main function `getGenomicRegionsFromGeneSymbols()` reads a list of gene symbols and some secondary parameters, and eventually prints their genomic regions.
+
+```{r, eval=TRUE}
+gene_symbols_list <- c("AK4", "ALDOC", "EGLN1", "FAM162A", "MTFP1", "PDK1", "PGK1")
+verboseFlag <- FALSE
+trackName <- "neuroblastomaPrognosticSignature2020"
+outputFolder  <- "./test"
+outputFileFormat <- "BED"
+outputFileFlag <- FALSE
+arrangedAnnotations <- getGenomicRegionsFromGeneSymbols(gene_symbols_list, trackName, outputFileFlag, outputFolder, outputFileFormat, verboseF
+```
+
+The function will print all the genomic regions of the query gene symbols.s
+
+## Contacts
+
+This software was developed by [Davide Chicco](https://www.DavideChicco.it), who can be contacted via email at davidechicco(AT)davidechicco.it
+
+ Session Info
+
+```{r, tidy=TRUE}
+sessionInfo()
+```
