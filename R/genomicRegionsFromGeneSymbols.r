@@ -173,7 +173,7 @@ getGenomicRegionsFromGeneSymbols <- function(thisGeneSymbolList, thisTrackName, 
         if(verboseFlag) cat("~ : ~ : ~  The coordinates here are for the GRCh38/hg38 reference genome ~ : ~ : ~ \n")
         if(verboseFlag) cat("~ : ~ : ~  More information on GRCh38/hg38: https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40 ~ : ~ : ~ \n")
             
-        theseAnnotations <- thisAnnotLookup
+        theseAnnotations <- thisAnnotLookup[(which(thisAnnotLookup$"Gene name" != "")),]
 
         theseAnnotations <- theseAnnotations %>% dplyr::relocate("Gene end (bp)", .after = "Gene start (bp)")
         theseAnnotations$"Flank (Gene)" <- NULL
