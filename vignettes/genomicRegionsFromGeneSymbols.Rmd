@@ -68,7 +68,7 @@ trackName <- "neuroblastomaPrognosticSignature2020"
 outputFolder  <- "./test"
 outputFileFormat <- "BED"
 outputFileFlag <- FALSE
-arrangedAnnotations <- getGenomicRegionsFromGeneSymbols(gene_symbols_list, trackName, outputFileFlag, outputFolder, outputFileFormat, verboseF
+arrangedAnnotations <- getGenomicRegionsFromGeneSymbols(gene_symbols_list, trackName, outputFileFlag, outputFolder, outputFileFormat, verboseFlag)
 ```
 
 The function will print all the genomic regions of the query gene symbols.s
